@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .app-container
+    h1.title= title
+
+    .message-container
+
+      p Welcome to the #{title}
+
+      each message in messages
+        .message-header 
+          div.user #{message.user} 
+          div.date #{message.date}
+        p.text #{message.text}
+
+   
+    form(method="POST" action="/new")
+      .input-container
+        input(type="text" id="author" name="author" placeholder="Username" required)
+        br
+        input(type="text" id="message" name="message" placeholder="Message" required)
+        br
+      button(type="submit") 
+        svg(width="35" height="35" viewBox="0 0 24 24")
+          path(d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M8,7.71V11.05L15.14,12L8,12.95V16.29L18,12L8,7.71Z")
+
+  
